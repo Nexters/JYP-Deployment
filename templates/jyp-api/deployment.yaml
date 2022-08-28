@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jyp-api-deployment
+  labels:
+    app: jyp-api
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: jyp-api
+  template:
+    metadata:
+      labels:
+        app: jyp-api
+    spec:
+      containers:
+      - name: app
+        image: fuzzysound/journeypiki:latest
+        imagePullPolicy: Always
+        env:
+          - name: ENV
+            value: "production"
+        envFrom:
+          - secretRef:
+              name: jyp-api-secret
+      - name: nginx
+        image: nginx:1.22
+        ports:
+          - containerPort: 80
+            name: jyp-api-port
+        volumeMounts:
+          - name: nginx-conf
+            mountPath: /etc/nginx
+          - name: nginx-static
+            mountPath: /usr/share/nginx/static
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-configmap
+        - name: nginx-static
+          hostPath:
+            path: /etc/static
+

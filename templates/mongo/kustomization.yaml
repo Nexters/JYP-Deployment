@@ -1,0 +1,6 @@
+resources:
+  - statefulSet.yaml
+configMapGenerator:
+  - name: mongo-configmap
+    files:
+      - https://raw.githubusercontent.com/Nexters/JYP-Server/main/mongo-init.js

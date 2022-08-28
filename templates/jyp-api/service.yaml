@@ -7,6 +7,6 @@ spec:
     app: jyp-api
   ports:
   - name: api-port
-    port: 3000
-    targetPort: 3000
+    port: 8080
+    targetPort: 80
   type: ClusterIP
