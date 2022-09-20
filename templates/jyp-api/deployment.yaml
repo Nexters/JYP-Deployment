@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: fuzzysound/journeypiki:latest
+        image: fuzzysound/journeypiki:test
         imagePullPolicy: Always
         env:
           - name: ENV
