@@ -26,6 +26,8 @@ spec:
         env:
           - name: ENV
             value: "production"
+          - name: TZ
+            value: "Asia/Seoul"
         envFrom:
           - secretRef:
               name: jyp-api-secret
