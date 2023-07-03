@@ -1,0 +1,4 @@
+spec:
+  config:
+    nodeSelector:
+      journeypiki/cert-manager: true
