@@ -10,7 +10,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - journeypiki.duckdns.org
+        - journeypiki2.duckdns.org
       secretName: tls-secret
   rules:
     - host: journeypiki.duckdns.org
