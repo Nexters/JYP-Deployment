@@ -13,7 +13,7 @@ spec:
         - journeypiki2.duckdns.org
       secretName: tls-secret
   rules:
-    - host: journeypiki.duckdns.org
+    - host: journeypiki2.duckdns.org
       http:
         paths:
           - path: /
