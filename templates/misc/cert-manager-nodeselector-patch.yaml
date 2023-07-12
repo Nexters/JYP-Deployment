@@ -1,0 +1,5 @@
+spec:
+  template:
+    spec:
+      nodeSelector:
+        journeypiki/cert-manager: "true"

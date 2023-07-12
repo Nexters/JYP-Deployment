@@ -5,7 +5,7 @@ metadata:
   labels:
     app: jyp-api
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,6 +19,8 @@ spec:
       labels:
         app: jyp-api
     spec:
+      nodeSelector:
+        journeypiki/role: api
       containers:
       - name: app
         image: fuzzysound/journeypiki:latest
